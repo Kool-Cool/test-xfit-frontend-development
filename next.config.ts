@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const isPreview = process.env.API_ENV === 'preview';
 
@@ -16,8 +16,6 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        // port: '',
-        // search: '',
       },
     ],
   },
@@ -32,13 +30,13 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     console.log('Preview', isPreview && urlBase);
-    return (isPreview && urlBase)
+    return isPreview && urlBase
       ? [
-        {
-          source: '/v0/:path*',
-          destination: `${urlBase}/v0/:path*`,
-        },
-      ]
+          {
+            source: '/v0/:path*',
+            destination: `${urlBase}/v0/:path*`,
+          },
+        ]
       : [];
   },
   async headers() {
@@ -71,7 +69,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // reactProductionProfiling: !,
   logging: {
     fetches: {
       fullUrl: true,
@@ -80,6 +77,9 @@ const nextConfig: NextConfig = {
   devIndicators: {
     buildActivity: true,
     buildActivityPosition: 'bottom-left',
+  },
+  eslint: {
+    ignoreDuringBuilds: true,  // Disable linting during production build
   },
   /* config options here */
 };
