@@ -1,0 +1,6 @@
+runtime: nodejs20  # Specify the runtime (Node.js version)
+
+env_variables:
+  AUTH_SECRET: "3be1512fe2a7ff8721c5b163b860acf54a63899f95169ee05fa751618e40568f03c766639124dc97ab65e5d278a19ee11d429b5582ad8f4d7083a31f5098b061"
+  API_URL: "https://testbackend-xyz123.el.r.appspot.com/"
+
